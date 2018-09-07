@@ -22,6 +22,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
+        <webjars-locator>0.32-1</webjars-locator>
+        <bootstrap>3.3.7</bootstrap>
+        <jquery>3.3.1</jquery>
 	</properties>
 
 	<dependencies>
@@ -35,7 +39,31 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- webjars-locator-->
+		<!--webjars-locator 包的作用是省略 webjar 的版本。比如对于请求 http://localhost:8080/webjars/jquery/3.1.0/jquery.js省略版本号 3.2.1 直接使用http://localhost:8080/webjars/jquery/jquery.js也可访问。-->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>webjars-locator</artifactId>
+		    <version>${webjars-locator}</version>
+		</dependency>
+		
+		<!-- bootstrap -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>bootstrap</artifactId>
+		    <version>${bootstrap}</version>
+		</dependency>
+		
+		<!-- jquery -->
+		<dependency>
+		    <groupId>org.webjars</groupId>
+		    <artifactId>jquery</artifactId>
+		    <version>${jquery}</version>
+		</dependency>
 	</dependencies>
+	
+	
 
 	<build>
 		<plugins>
