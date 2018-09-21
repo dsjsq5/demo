@@ -1,0 +1,39 @@
+使用iview,标签如《MENU》需写成《i-menu》,驼峰命名的标签如<MenuItem>需写成<Menu-Item>
+
+总结一下： 
+1.有些元素要加上i-前缀，官方文档都有提示，如Menu改写为i-menu。但有些不需要加，如Icon，很让人困惑。 
+2.驼峰写法的元素，要用下划线分开。如MenuItem，要改写为menu-item。 
+3.查看网页源码，如果自定义元素没有被解析，就是写法不对。 
+
+
+在非 template/render 模式下（例如使用 CDN 引用时），组件名要分隔，例如 DatePicker 必须要写成 date-picker。
+
+以下组件，在非 template/render 模式下，需要加前缀 i-：
+Button: i-button
+Col: i-col
+Table: i-table
+Input: i-input
+Form: i-form
+Menu: i-menu
+Select: i-select
+Option: i-option
+Progress: i-progress
+Header:i-header
+Content:i-content
+Footer:i-footer
+
+以下组件，在所有模式下，必须加前缀 i-，除非使用 iview-loader：
+Switch: i-switch
+Circle: i-circle
+
+
+其他组件写法不变，如
+<Row>
+<Card>
+<Sider>
+<Layout>
+<Submenu>
+<Menu-item>
+
+BreadcrumbItem 组件非render下无效
+

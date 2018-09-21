@@ -16,4 +16,10 @@ public class UserController {
     String index(){
         return "index.html";
     }
+    
+    
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    String test(){
+        return "test1.html";
+    }
 }

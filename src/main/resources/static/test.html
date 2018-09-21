@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link  rel="stylesheet" type="text/css" href="/static/iview.css"/>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script src="/static/vue.js"></script>
+<script src="/static/iview.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div id="app4">  
+	<i-menu mode="horizontal" :theme="theme1" active-name="1">
+        <Menu-Item name="1">
+        <!-- <i class="glyphicon glyphicon-book" aria-hidden="true"></i> -->
+        <i><img alt="" src="/static/icon-star.png"></i>
+            	内容管理
+        </Menu-Item>
+        <Menu-Item name="2">
+            <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+         	   用户管理
+        </Menu-Item>
+        <Submenu name="3">
+            <template slot="title">
+                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+              	  统计分析
+            </template>
+            <Menu-Group title="使用">
+                <Menu-Item name="3-1">新增和启动</Menu-Item>
+                <Menu-Item name="3-2">活跃分析</Menu-Item>
+                <Menu-Item name="3-3">时段分析</Menu-Item>
+            </Menu-Group>
+            <Menu-Group title="留存">
+                <Menu-Item name="3-4">用户留存</Menu-Item>
+                <Menu-Item name="3-5">流失用户</Menu-Item>
+            </Menu-Group>
+        </Submenu>
+        <Menu-Item name="4">
+            <i class="glyphicon glyphicon-cog" aria-hidden="true"></i>
+           	 综合设置
+        </Menu-Item>
+    </i-menu>  
+    <br>  
+    <p>修改主题</p>  
+    <Radio-Group v-model="theme1">  
+        <Radio label="light"></Radio>  
+        <Radio label="dark"></Radio>  
+        <Radio label="primary"></Radio>  
+    </Radio-Group>
+  </div>  
+  
+    <script type="text/javascript">  
+        var vue = new Vue({  
+            el:'#app4',  
+            data:function(){  
+                return {  
+                	theme1: 'primary'  
+                };  
+            },  
+            methods:{  
+                onMenuSelect:function(name){  
+                    console.log(name," is clicked!");  
+                    if(name==="4"){  
+                          
+                    }  
+                }  
+            }  
+        });  
+    </script>
+
+<div id="app1">
+  {{ message }}
+</div>
+<script type="text/javascript">
+var app = new Vue({
+  el: '#app1',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+</script>
+
+<div id="app">
+    <Row>
+        <i-col span="12">
+            <Steps :current="2">
+                <Step title="已完成" content="这里是该步骤的描述信息"></Step>
+                <Step title="进行中" content="这里是该步骤的描述信息"></Step>
+                <Step title="待进行" content="这里是该步骤的描述信息"></Step>
+                <Step title="待进行" content="这里是该步骤的描述信息"></Step>
+            </Steps>
+        </i-col>
+        <i-col span="12">
+<!-- 			    <Tabs value="name1">
+			        <Tab-pane label="我是" name="name1">你好</Tab-pane>
+			        <Tab-pane label="你好" name="name2">我是</Tab-pane>
+			    </Tabs> -->
+             <i-button @click="show">Click me!</i-button>
+        </i-col>
+    </Row>
+    
+    
+    <Modal v-model="visible" title="Welcome">欢迎使用 iView</Modal>
+    <Slider v-model="value1"></Slider>
+    <Slider v-model="value2" range></Slider>
+    <Slider v-model="value3" range disabled></Slider>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+             visible: false,
+             theme1: 'light',
+             value1: 25,
+             value2: [20, 50],
+             value3: [20, 50]
+        },
+        methods: {
+            show: function () {
+                this.visible = true;
+            }
+        }
+    })
+  </script>
+  
+<div id="app2">
+    <Tabs value="name1">
+        <Tab-Pane label="标签一" name="name1">标签一的内容</Tab-Pane>
+        <Tab-Pane label="标签二" name="name2">标签二的内容</Tab-Pane>
+        <Tab-Pane label="标签三" name="name3">标签三的内容</Tab-Pane>
+    </Tabs>
+</div>
+<script>
+    new Vue({
+        el: '#app2',
+        data: {
+        	
+        }
+    })
+  </script>
+  
+  
+ <div id="app3">  
+    <i-menu mode="horizontal" :theme="menuTheme" active-name="1" @on-select="onMenuSelect">  
+        <Menu-Item name="1">  
+            <Icon type="ios-paper"></Icon>时事新闻  
+        </Menu-Item>  
+        <Menu-Item name="2">  
+            <Icon type="ios-people"></Icon>时事评论  
+        </Menu-Item>  
+        <Submenu name="3">  
+            <template slot="title">  
+                <Icon type="stats-bars"></Icon>特邀专家  
+            </template>  
+            <Menu-Group title="国际专家">  
+                <Menu-Item name="3-1">张无忌</Menu-Item>  
+                <Menu-Item name="3-2">赵　敏</Menu-Item>  
+                <Menu-Item name="3-3">张三丰</Menu-Item>  
+            </Menu-Group>  
+            <Menu-Group title="国内专家">  
+                <Menu-Item name="3-4">萧　峰</Menu-Item>  
+                <Menu-Item name="3-5">虚　竹</Menu-Item>  
+            </Menu-Group>  
+        </Submenu>  
+        <Menu-Item name="4">  
+            <Icon type="settings"></Icon>http://wallimn.iteye.com  
+        </Menu-Item>  
+    </i-menu>  
+    <br>  
+    <p>修改主题</p>  
+    <Radio-Group v-model="menuTheme">  
+        <Radio label="light"></Radio>  
+        <Radio label="dark"></Radio>  
+        <Radio label="primary"></Radio>  
+    </Radio-Group>
+  </div>  
+  
+    <script type="text/javascript">  
+        var vue = new Vue({  
+            el:'#app3',  
+            data:function(){  
+                return {  
+                    menuTheme: 'primary'  
+                };  
+            },  
+            methods:{  
+                onMenuSelect:function(name){  
+                    console.log(name," is clicked!");  
+                    if(name==="4"){  
+                          
+                    }  
+                }  
+            }  
+        });  
+    </script>  
+    
+  
+
+</body>
+</html>
