@@ -5,6 +5,7 @@ public class User {
 
     public String name;
     public String age;
+    public String password;
 
     public String getId() {
         return id;
@@ -30,6 +31,11 @@ public class User {
         this.age = age;
     }
 
+    public String getPassword() {
+        return password;
+    }
 
-
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
