@@ -4,10 +4,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta charset="UTF-8">
 <title>Insert title here</title>
-    <link  rel="stylesheet" type="text/css" href="../static/element.css"/>
-    <link  rel="stylesheet" type="text/css" href="../static/inputcss.css"/>
-    <script src="../static/vue.js"></script>
-    <script src="../static/element.js"></script>
+    <!--<link  rel="stylesheet" type="text/css" href="../static/element.css"/>-->
+    <!--<link  rel="stylesheet" type="text/css" href="../static/inputcss.css"/>-->
+    <!--<script src="../static/vue.js"></script>-->
+    <!--<script src="../static/element.js"></script>-->
+    <script src="../static/commonjs.js"></script>
 
 </head>
 <body>
@@ -36,10 +37,16 @@
         <el-menu-item index="3" disabled>消息中心</el-menu-item>
         <el-menu-item index="4"><a href="#" target="_blank">订单管理</a></el-menu-item>
         <el-menu-item style="float:right;margin-right:5%;" index="5"><a href="javascript:void(0)">login</a></el-menu-item>
-        <el-menu-item style="float:right;margin-right:3%;" index="6"><a href="/demo/logout">logout</a></el-menu-item>
+        <!--a标签会在item上面，点击item，不一定点击a标签-->
+        <el-menu-item style="float:right;margin-right:3%;" index="6" onclick="go()">logout</el-menu-item>
+
     </el-menu>
 </div>
 <script>
+    function go() {
+        alert(1);
+        window.location.href='/demo/logout';
+    }
     var v2 = new Vue({
         el: '#app2',
         data: {
@@ -47,7 +54,7 @@
         },
         methods: {
             handleSelect(key, keyPath) {
-                alert(keyPath);
+                // alert(keyPath);
                 console.log(key, keyPath);
             }
         }
