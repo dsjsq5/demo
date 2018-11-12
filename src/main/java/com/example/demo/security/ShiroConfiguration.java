@@ -50,7 +50,7 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setSuccessUrl("/demo/index");
 
         //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/demo/error");
+//        shiroFilterFactoryBean.setUnauthorizedUrl("/demo/error");//用 @ExceptionHandler({ Exception.class })代替
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }

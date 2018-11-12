@@ -3,14 +3,10 @@ package com.example.demo.controller;
 import com.example.demo.bean.User;
 import com.example.demo.dao.UserDao;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +38,13 @@ public class UserController {
         System.out.println(userTemp.getName());
         return "index";
     }
+
+    @RequiresPermissions("admin")
+    @RequestMapping(value = {"/testerr"}, method = RequestMethod.GET)
+    public String testerr(){
+        System.out.println("testerr----");
+        return "login";
+    }
     
     
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -51,7 +54,7 @@ public class UserController {
         if(user != null){
             return "redirect:/demo/index";
         }
-        return "login1";
+        return "login";
     }
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(){
@@ -79,18 +82,9 @@ public class UserController {
 
 
     /* 错误页面配置*/
-    @RequestMapping(value = "/error")
     @ExceptionHandler({ Exception.class })
     @ResponseStatus()
-    public String error(Model model){
-        System.out.println("error:");
-//		ModelAndView m = new ModelAndView();
-//		m.setViewName("index");
-//		List<Book> list=bookDao.getBooks();
-//		System.out.println(list.size());
-//		String s = "tetetet";
-//		model.addAttribute("list", list);
-
-        return "redirect:/demo/index";
+    public String error(){
+        return "err";//跳转的页面不能是error，会报错，不知道为什么,也不能redirect:/demo/index
     }
 }
