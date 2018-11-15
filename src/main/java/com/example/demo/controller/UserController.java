@@ -7,6 +7,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,11 +31,12 @@ public class UserController {
 //    @RequiresRoles("admin")
     @RequiresPermissions("user")
     @RequestMapping(value = {"/index", ""}, method = RequestMethod.GET)
-    public String index(){
+    public String index(Model model){
 //        System.out.println(name);
         User user = new User();
         user.setId("1");
         User userTemp = userDao.getUserById(user);
+        model.addAttribute("userTemp",userTemp);
         System.out.println(userTemp.getName());
         return "index";
     }

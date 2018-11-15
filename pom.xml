@@ -39,6 +39,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--热部署-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-devtools</artifactId>-->
+			<!--<optional>true</optional>-->
+		<!--</dependency>-->
 		
 		<!-- webjars-locator-->
 		<!--webjars-locator 包的作用是省略 webjar 的版本。比如对于请求 http://localhost:8080/webjars/jquery/3.1.0/jquery.js省略版本号 3.2.1 直接使用http://localhost:8080/webjars/jquery/jquery.js也可访问。-->
@@ -112,6 +118,22 @@
 			<version>1.4.0</version>
 		</dependency>
 		<!-- 添加shiro依赖 end-->
+
+		<!--添加thymeleaf配置-->
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf</artifactId>
+			<version>3.0.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring4</artifactId>
+			<version>3.0.9.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 
 	</dependencies>
 	
