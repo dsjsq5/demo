@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 //@SpringBootApplication
@@ -36,7 +38,9 @@ public class UserController {
         User user = new User();
         user.setId("1");
         User userTemp = userDao.getUserById(user);
-        model.addAttribute("userTemp",userTemp);
+        List<User> list = new ArrayList<User>();
+        list.add(userTemp);
+        model.addAttribute("list", list);
         System.out.println(userTemp.getName());
         return "index";
     }
